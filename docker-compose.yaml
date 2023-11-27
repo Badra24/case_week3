@@ -1,0 +1,36 @@
+version: "3"
+services:
+  flaskapp:
+    build:
+      context: .
+    container_name: flaskapp
+    ports:
+      - 5000:5000
+    restart: on-failure
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+
+  db:
+    container_name: postgresql
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345678
+      - POSTGRES_DB=mydb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+
+volumes:
+  pgdata:
