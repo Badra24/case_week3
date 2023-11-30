@@ -35,3 +35,14 @@ jobs:
           context: ./postgres
           file: ./postgres/Dockerfile
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/postgres:${{ github.run_number }}
+
+      - name: Debug Docker Output
+        run: |
+          echo "Docker Info:"
+          docker info
+          echo "Docker Images:"
+          docker images
+          echo "Docker Containers:"
+          docker ps -a
+          echo "Docker Buildx:"
+          docker buildx ls
