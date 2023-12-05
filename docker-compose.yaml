@@ -6,7 +6,7 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile
-    image: Badra24/flaskapp:10
+    image: badra24/flaskapp:10
     restart: always
     ports:
       - 5000:5000
@@ -17,7 +17,7 @@ services:
 
   database:
     container_name: database
-    image: Badra24/postgres:10
+    image: badra24/postgres:10
     build:
       context: ./postgres
       dockerfile: Dockerfile
