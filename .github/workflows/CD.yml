@@ -46,7 +46,3 @@ jobs:
           docker ps -a
           echo "Docker Buildx:"
           docker buildx ls
-          echo "Flaskapp Container Logs:"
-          docker logs ${{ secrets.DOCKERHUB_USERNAME }}/flaskapp:${{ github.run_number }}
-          echo "Postgres Container Logs:"
-          docker logs ${{ secrets.DOCKERHUB_USERNAME }}/postgres:${{ github.run_number }}
