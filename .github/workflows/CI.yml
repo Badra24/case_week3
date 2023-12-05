@@ -1,11 +1,12 @@
-name: CI (Continuous Integrations)
+name: CI (Continue Integrations)
 
 on:
   pull_request:
     branches: ["master"]
 
 jobs:
-  build-testing:
+  #id job
+  build-testing: #Pastikan gak ada spasi
     name: Build and Testing
     runs-on: ubuntu-latest
 
@@ -22,6 +23,11 @@ jobs:
         run: |
           sudo docker compose up -d
 
+      - name: Install requirements for testing
+        run: |
+          pip install -r testing/requirements.txt
+
       - name: Testing
         run: |
-          python3 testing/test.py
+          sleep 20
+          pytest testing/test.py
