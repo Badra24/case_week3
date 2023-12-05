@@ -1,7 +1,7 @@
-CREATE TABLE users(
+CREATE TABLE absensi_table(
     id SERIAL PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    password VARCHAR(100) NOT NULL
+    nama VARCHAR(50) NOT NULL,
+    nim VARCHAR(50) NOT NULL,
+    mata_kuliah VARCHAR(100) NOT NULL,
+    jurusan VARCHAR(100) NOT NULL
 );
