@@ -1,19 +1,23 @@
 version: "3"
+
 services:
-  flaskapp:
+  app:
+    container_name: app
     build:
-      context: .
-    container_name: flaskapp
+      context: ./app
+      dockerfile: Dockerfile
+    image: Badra24/flaskapp:10
+    restart: always
     ports:
       - 5000:5000
-    restart: on-failure
     depends_on:
-      - db
+      - database
     networks:
-      - mynetwork
+      - absensi
 
-  db:
-    container_name: postgresql
+  database:
+    container_name: database
+    image: Badra24/postgres:10
     build:
       context: ./postgres
       dockerfile: Dockerfile
@@ -21,16 +25,16 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=12345678
-      - POSTGRES_DB=mydb
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
-      - mynetwork
+      - absensi
 
 networks:
-  mynetwork:
+  absensi:
 
 volumes:
   pgdata:
