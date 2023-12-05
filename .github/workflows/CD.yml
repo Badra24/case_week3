@@ -26,6 +26,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./app
+          push: true
           file: ./app/Dockerfile
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/flaskapp:${{ github.run_number }}
 
@@ -33,6 +34,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./postgres
+          push: true
           file: ./postgres/Dockerfile
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/postgres:${{ github.run_number }}
 
