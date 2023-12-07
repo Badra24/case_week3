@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Signup Form</title>
+    <title>Form Absensi Mahasiswa</title>
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Signup Form</h1>
-    <form method="POST" action="/">
-        <label for="first_name">First Name:</label><br>
-        <input type="text" id="first_name" name="first_name" required><br><br>
-        
-        <label for="last_name">Last Name:</label><br>
-        <input type="text" id="last_name" name="last_name" required><br><br>
-        
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-        
-        <input type="submit" value="Signup">
+    <h1>Form Absensi</h1>
+    <form action="/" method="post">
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" name="nama" required><br><br>
+
+        <label for="nim">Nomor Induk Mahasiswa:</label>
+        <input type="text" id="nim" name="nim" required><br><br>
+
+        <label for="mata_kuliah">Mata Kuliah:</label>
+        <input type="text" id="mata_kuliah" name="mata_kuliah" required><br><br>
+
+        <label for="jurusan">Jurusan:</label>
+        <input type="text" id="jurusan" name="jurusan" required><br><br>
+
+        <input type="submit" value="Submit">
     </form>
 </body>
 </html>
