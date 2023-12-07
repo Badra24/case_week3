@@ -3,10 +3,10 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import chromedriver_autoinstaller
-from pyvirtualdisplay import Display
+from pyvirtualdisplay.display import Display
 
 # Inisialisasi virtual display untuk menjalankan browser tanpa GUI (headless)
-display = Display(visible=0, size=(800, 800))
+display = Display(visible=False, size=(800, 800))
 display.start()
 
 # Menggunakan chromedriver_autoinstaller untuk menginstal ChromeDriver
